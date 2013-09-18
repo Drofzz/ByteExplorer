@@ -83,7 +83,7 @@
                                                               items.Item(7).SubItems("ByteData").Tag)
                 End Select
             Else
-                MessageBox.Show("The Bytes need to be adjecent to each other", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("The Bytes need to be Connected to each other", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         Else
             MessageBox.Show("And Unsigned Integer needs to be 2, 4 or 8 bytes long", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
