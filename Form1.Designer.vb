@@ -25,16 +25,17 @@ Partial Class Form1
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.Position = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ByteData = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Used = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.ListView2 = New System.Windows.Forms.ListView()
-        Me.Position = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Used = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Type = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Value = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -61,20 +62,28 @@ Partial Class Form1
         '
         Me.ListView1.Alignment = System.Windows.Forms.ListViewAlignment.Left
         Me.ListView1.AutoArrange = False
-        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Position, Me.ByteData, Me.Used})
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.Position, Me.ByteData, Me.Used, Me.Type, Me.Value})
         Me.ListView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ListView1.FullRowSelect = True
         Me.ListView1.Location = New System.Drawing.Point(3, 3)
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(97, 233)
+        Me.ListView1.Size = New System.Drawing.Size(406, 233)
         Me.ListView1.TabIndex = 3
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'Position
+        '
+        Me.Position.Text = "Pos"
         '
         'ByteData
         '
         Me.ByteData.Text = "ByteData"
         Me.ByteData.Width = 129
+        '
+        'Used
+        '
+        Me.Used.Text = "Used"
         '
         'Button2
         '
@@ -121,30 +130,16 @@ Partial Class Form1
         Me.TableLayoutPanel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.0!))
+        Me.TableLayoutPanel1.ColumnCount = 1
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ListView1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ListView2, 1, 0)
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(12, 38)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(412, 239)
         Me.TableLayoutPanel1.TabIndex = 9
-        '
-        'ListView2
-        '
-        Me.ListView2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ListView2.Location = New System.Drawing.Point(106, 3)
-        Me.ListView2.Name = "ListView2"
-        Me.ListView2.Size = New System.Drawing.Size(303, 233)
-        Me.ListView2.TabIndex = 4
-        Me.ListView2.UseCompatibleStateImageBehavior = False
-        '
-        'Position
-        '
-        Me.Position.Text = "Pos"
         '
         'Button6
         '
@@ -156,9 +151,13 @@ Partial Class Form1
         Me.Button6.Text = "None"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'Used
+        'Type
         '
-        Me.Used.Text = "Used"
+        Me.Type.Text = "Type"
+        '
+        'Value
+        '
+        Me.Value.Text = "Value"
         '
         'Form1
         '
@@ -189,9 +188,10 @@ Partial Class Form1
     Friend WithEvents Button4 As System.Windows.Forms.Button
     Friend WithEvents Button5 As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents ListView2 As System.Windows.Forms.ListView
     Friend WithEvents Position As System.Windows.Forms.ColumnHeader
     Friend WithEvents Button6 As System.Windows.Forms.Button
     Friend WithEvents Used As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Type As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Value As System.Windows.Forms.ColumnHeader
 
 End Class
