@@ -9,10 +9,14 @@
 
     Private Shared Function Conv2Byte(decimals As String) As List(Of Byte)
         Dim bytes As New List(Of Byte)
-        Dim decs As New List(Of String)(decimals.Split(" "))
+        Dim decs As New List(Of String)(decimals.Trim().Split(" "))
 
         For Each dec As String In decs
-            bytes.Add(Byte.Parse(dec))
+            Try
+                bytes.Add(Byte.Parse(dec))
+            Catch ex As Exception
+
+            End Try
         Next
         Return bytes
     End Function

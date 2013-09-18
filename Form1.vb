@@ -1,4 +1,6 @@
-﻿Public Class Form1
+﻿Imports System.Text
+
+Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If TextBox1.Text.Length > 0 Then
             Dim b As List(Of Byte) = New SpringObject(TextBox1.Text).Bytes
@@ -34,8 +36,39 @@
         End If
     End Sub
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Form1_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.A And e.Control = True Then
+            If ListView1.Focused Then
+                For Each item As ListViewItem In ListView1.Items
+                    item.Selected = True
+                Next
+            End If
+        End If
 
+        If e.KeyCode = Keys.C And e.Control = True Then
+            If ListView1.Focused Then
+                Dim list As ListView.SelectedListViewItemCollection = ListView1.SelectedItems
+                Dim buffer As New StringBuilder()
+                For Each item As ListViewItem In list
+                    buffer.Append(item.SubItems("Position").Text)
+                    buffer.Append(vbTab)
+                    buffer.Append(item.SubItems("ByteData").Text)
+                    buffer.Append(vbTab)
+                    buffer.Append(item.SubItems("Used").Text)
+                    buffer.Append(vbTab)
+                    buffer.Append(item.SubItems("Type").Text)
+                    buffer.Append(vbTab)
+                    buffer.Append(item.SubItems("Value").Text)
+                    buffer.Append(vbTab)
+                    buffer.Append(vbCrLf)
+                    My.Computer.Clipboard.SetText(buffer.ToString)
+                Next
+            End If
+        End If
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        KeyPreview = True
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -183,7 +216,7 @@
     Private Function ContrastColor(color As Color) As Color
         Dim d = 0
 
-        Dim a = 1 - (0.299 * Color.R + 0.587 * Color.G + 0.114 * Color.B) / 255
+        Dim a = 1 - (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255
 
         If (a < 0.5) Then
             d = 0
